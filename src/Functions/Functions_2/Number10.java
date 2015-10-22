@@ -1,4 +1,4 @@
-package number;
+package Functions.Functions_2;
 
 public class Number10 extends Number {
     private Number1 number1;

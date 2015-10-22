@@ -1,4 +1,4 @@
-package number;
+package Functions.Functions_2;
 
 public abstract class Number {
 
@@ -19,6 +19,5 @@ public abstract class Number {
             return new Number1(value).getStringPresentation();
         }
         return "";
-
     }
 }

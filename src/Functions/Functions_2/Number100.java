@@ -1,4 +1,4 @@
-package number;
+package Functions.Functions_2;
 
 public class Number100 extends Number {
     private String str_value;

@@ -1,4 +1,4 @@
-package number;
+package Functions.Functions_2;
 
 import java.io.BufferedReader;
 import java.io.IOException;

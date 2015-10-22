@@ -1,6 +1,4 @@
-package number;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
+package Functions.Functions_2;
 
 public class Number1 extends Number {
     private String str_value;
