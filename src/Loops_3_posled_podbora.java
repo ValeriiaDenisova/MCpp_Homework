@@ -14,10 +14,10 @@ public class Loops_3_posled_podbora {
         int i = 1;
         int rez = 1;
 
-        while (rez <= x) {
+        while (rez < x) {
             rez = i * i;
             i++;
         }
-        System.out.println(i - 2);
+        System.out.println(i-1);
     }
 }
