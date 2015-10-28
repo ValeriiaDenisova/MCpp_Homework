@@ -11,28 +11,28 @@ public class Number10 extends Number {
 
         switch (value / 10) {
         case 2:
-            desiat_word = "двадцать ";
+            desiat_word = "twenty ";
             break;
         case 3:
-            desiat_word = "тридцать ";
+            desiat_word = "thirty ";
             break;
         case 4:
-            desiat_word = "сорок ";
+            desiat_word = "forty ";
             break;
         case 5:
-            desiat_word = "пятьдесят ";
+            desiat_word = "fifty ";
             break;
         case 6:
-            desiat_word = "шестьдесят ";
+            desiat_word = "sixty ";
             break;
         case 7:
-            desiat_word = "семьдесят ";
+            desiat_word = "seventy ";
             break;
         case 8:
-            desiat_word = "восемьдесят ";
+            desiat_word = "eighty ";
             break;
         case 9:
-            desiat_word = "девяносто ";
+            desiat_word = "ninety ";
             break;
 
         default:

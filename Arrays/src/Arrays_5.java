@@ -17,11 +17,17 @@ public class Arrays_5 {
 	    for (int i = 0; i < n; i++) {
 	       a[i] = Integer.parseInt(reader.readLine());
 	       }	
+	    
+	    int sum = sum(a);
+	    System.out.println("Summa elementov massiva s nechetnymi indeksami " + sum);
+	}
+	
+	public static int sum (int [] a){
 	    int sum = 0;
 	    for (int i = 1; i < a.length; i = i + 2) {
 	    	sum = sum + a[i];
 	    }
-	    System.out.println("Summa elementov massiva s nechetnymi indeksami " + sum);
+		return sum;
 	}
 
 }

@@ -11,31 +11,31 @@ public class Number100 extends Number {
 
         switch (value / 100) {
         case 1:
-            sotie_word = "сто ";
+            sotie_word = "one hundred ";
             break;
         case 2:
-            sotie_word = "двести ";
+            sotie_word = "two hundred ";
             break;
         case 3:
-            sotie_word = "триста ";
+            sotie_word = "three hundred ";
             break;
         case 4:
-            sotie_word = "четыреста ";
+            sotie_word = "four hundred ";
             break;
         case 5:
-            sotie_word = "пятьсот ";
+            sotie_word = "five hundred ";
             break;
         case 6:
-            sotie_word = "шестьсот ";
+            sotie_word = "six hundred ";
             break;
         case 7:
-            sotie_word = "семьсот ";
+            sotie_word = "seven hundred ";
             break;
         case 8:
-            sotie_word = "восемьсот ";
+            sotie_word = "eight hundred ";
             break;
         case 9:
-            sotie_word = "девятьсот ";
+            sotie_word = "nine hundred ";
             break;
 
         default:

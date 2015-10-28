@@ -17,12 +17,17 @@ public class Arrays_7 {
             a[i] = Integer.parseInt(reader.readLine());
         }
 
+        int j = quantity(a);
+        System.out.println(j);
+    }
+    
+    public static int quantity (int[] a){
         int j = 0;
         for (int i = 0; i < a.length; i++) {
             if (a[i] % 2 != 0) {
                 j++;
             }
         }
-        System.out.println(j);
+		return j;
     }
 }

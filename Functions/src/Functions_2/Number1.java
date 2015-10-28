@@ -9,31 +9,31 @@ public class Number1 extends Number {
 
         switch (value) {
         case 1:
-            edin_word = "один";
+            edin_word = "one";
             break;
         case 2:
-            edin_word = "два";
+            edin_word = "two";
             break;
         case 3:
-            edin_word = "три";
+            edin_word = "three";
             break;
         case 4:
-            edin_word = "четыре";
+            edin_word = "four";
             break;
         case 5:
-            edin_word = "пять";
+            edin_word = "five";
             break;
         case 6:
-            edin_word = "шесть";
+            edin_word = "six";
             break;
         case 7:
-            edin_word = "семь";
+            edin_word = "seven";
             break;
         case 8:
-            edin_word = "восемь";
+            edin_word = "eight";
             break;
         case 9:
-            edin_word = "девять";
+            edin_word = "nine";
             break;
 
         default:

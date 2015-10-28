@@ -4,20 +4,25 @@ import java.io.InputStreamReader;
 
 public class Loops_3_posled_podbora {
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Vvedite chislo ");
-        int x = Integer.parseInt(reader.readLine());
+		System.out.println("Vvedite chislo ");
+		int x = Integer.parseInt(reader.readLine());
 
-        int i = 1;
-        int rez = 1;
+		int sqrt = sqrt(x);
+		System.out.println(sqrt);
+	}
 
-        while (rez < x) {
-            rez = i * i;
-            i++;
-        }
-        System.out.println(i-1);
-    }
+	public static int sqrt(int x) {
+		int i = 1;
+		int rez = 1;
+
+		while (rez < x) {
+			rez = i * i;
+			i++;
+		}
+		return i - 1;
+	}
 }

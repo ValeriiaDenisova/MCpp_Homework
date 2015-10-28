@@ -15,7 +15,7 @@ public class ASCII {
 
 		System.out.println();
 
-		for (char i = 'Ð°'; i <= 'Ñ'; i++) {
+		for (char i = 'à'; i <= 'ÿ'; i++) {
 			System.out.print(i);
 		}
 
@@ -26,6 +26,11 @@ public class ASCII {
 		}
 
 		System.out.println();
+		
+		for (char i = 32; i <= 127; i++) {
+			System.out.print(i);
+		}
+
 	}
 
 }
