@@ -1,6 +1,0 @@
-INDEX VERSION 1.127+/Developer/workspace/MCpp_HomeWork/.metadata/.plugins/org.eclipse.jdt.core
-482775344.index
-1693444936.index
-2055768874.index
-3422435800.index
-1549653844.index
