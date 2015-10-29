@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Arrays_6 {
 
@@ -17,16 +18,21 @@ public class Arrays_6 {
 	         a[i] = Integer.parseInt(reader.readLine());
 	         }	
 	
-	      revers_massiv(a);
+	      int [] b = revers_massiv(a);
+	      for(int element : b){
+		      System.out.print(element + " ");
+	      }
 	}
 	
-	public static int revers_massiv (int [] a) {
-	      int b = 0;
-		for (int i = a.length - 1; i >= 0; i--) {
-	    	  b  = a[i];
-	    	//  System.out.println(a[i]);
+	public static int[] revers_massiv (int[] a) {
+		int [] foo = new int [a.length];
+		int j = 0;
+
+		for (int i = a.length - 1; i >= 0; i--) {			
+	    	  foo[j]  = a[i];
+	    	  j++; 
 	      }
-		return b;
+		return foo;
 	}
 
 }

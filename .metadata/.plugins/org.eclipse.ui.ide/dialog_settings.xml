@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Symbols and Rows"/>
+			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Loops"/>
+			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Functions"/>
+			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/ConditionalOperators"/>
+			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Arrays"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
