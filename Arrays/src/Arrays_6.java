@@ -17,9 +17,16 @@ public class Arrays_6 {
 	         a[i] = Integer.parseInt(reader.readLine());
 	         }	
 	
-	      for (int i = a.length - 1; i >= 0; i--) {
-	    	  System.out.println(a[i]);
+	      revers_massiv(a);
+	}
+	
+	public static int revers_massiv (int [] a) {
+	      int b = 0;
+		for (int i = a.length - 1; i >= 0; i--) {
+	    	  b  = a[i];
+	    	//  System.out.println(a[i]);
 	      }
+		return b;
 	}
 
 }
