@@ -11,11 +11,18 @@ public class Loops_3 {
 		System.out.println("Vvedite chislo ");
 		int x = Integer.parseInt(reader.readLine());
 
-		int sqrt = sqrt(x);
-		System.out.println(sqrt);
+		try {
+			int sqrt = sqrt(x);
+			System.out.println(sqrt);
+		} catch (Exception e) {
+			System.out.println("Error");
+		}
 	}
 
 	public static int sqrt(int x) {
+		if (x == 0) {
+			throw new ArithmeticException();
+		}
 		int a, b;
 		b = x;
 		do {
