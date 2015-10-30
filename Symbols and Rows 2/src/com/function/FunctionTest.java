@@ -1,3 +1,5 @@
+package com.function;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -37,5 +39,4 @@ public class FunctionTest {
 	public void testFun_4_exc() {
 		Function.fun_4("123rrr");
 	}
-
 }

@@ -1,6 +1,6 @@
+package com.function;
 
 public class Function {
-
 	public static String fun_1(int a) {
 		String str = Integer.toString(a);
 		return str;
