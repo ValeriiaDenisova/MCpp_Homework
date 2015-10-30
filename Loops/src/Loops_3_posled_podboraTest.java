@@ -15,5 +15,10 @@ public class Loops_3_posled_podboraTest {
 		int sqrt = Loops_3_posled_podbora.sqrt(101);
 		assertEquals(11, sqrt);
 	}
+	
+	@Test (expected = ArithmeticException.class)
+	public void test_3() {
+		Loops_3_posled_podbora.sqrt(0);
+	}
 
 }

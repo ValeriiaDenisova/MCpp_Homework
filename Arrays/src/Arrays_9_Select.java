@@ -4,32 +4,43 @@ import java.io.InputStreamReader;
 
 public class Arrays_9_Select {
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Vvedite dlinu massiva ");
-        int n = Integer.parseInt(reader.readLine());
+		System.out.println("Vvedite dlinu massiva ");
+		int n = Integer.parseInt(reader.readLine());
 
-        int[] a = new int[n];
+		int[] a = new int[n];
 
-        System.out.println("Vvedite elementy massiva ");
-        for (int i = 0; i < n; i++) {
-            a[i] = Integer.parseInt(reader.readLine());
-        }
+		System.out.println("Vvedite elementy massiva ");
+		for (int i = 0; i < n; i++) {
+			a[i] = Integer.parseInt(reader.readLine());
+		}
 
-        for (int i = 0; i < a.length - 1; i++) {
-            int min = i;
-            for (int j = i + 1; j < a.length; j++) {
-                if (a[j] < a[min]) {
-                    int t = a[j];
-                    a[j] = a[min];
-                    a[min] = t;
-                }
-            }
-        }
+		try {
+			select(a);
+			for (int i = 0; i < a.length; i++)
+				System.out.println(a[i]);
 
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
-    }
+		} catch (IllegalArgumentException e) {
+			System.out.println("Error");
+		}
+	}
+
+	public static int[] select(int[] a) {
+		if (a == null || a.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		for (int i = 0; i < a.length - 1; i++) {
+			int min = i;
+			for (int j = i + 1; j < a.length; j++) {
+				if (a[j] < a[min]) {
+					int t = a[j];
+					a[j] = a[min];
+					a[min] = t;
+				}
+			}
+		}
+		return a;
+	}
 }

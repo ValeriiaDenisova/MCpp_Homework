@@ -21,13 +21,13 @@ public class Arrays_1_3Test {
 	@Test (expected = IllegalArgumentException.class)
 	public void testFun_min_0() {
 		int[] arr = {};
-		int min = Arrays_1_3.fun_min(arr);	
+		Arrays_1_3.fun_min(arr);	
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testFun_min_null() {
 		int[] arr = null;
-		int min = Arrays_1_3.fun_min(arr);	
+		Arrays_1_3.fun_min(arr);	
 	}
 
 	@Test
