@@ -1,24 +1,29 @@
 
-public class Person {
-	public Person() {
-		super();
-	}
-
+public class Person 
+{
 	int id;
 	String fname;
 	String lname;
 	int age;
-
-	public Person(int id, String fname, String lname, int age) {
-		this.id = id;
+	
+	public Person() 
+	{
+		//
+	}
+	
+	public Person(int id, String fname, String lname, int age) 
+	{
+		this.id    = id;
 		this.fname = fname;
 		this.lname = lname;
-		this.age = age;
+		this.age   = age;
 	}
 
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Person [id=" + id + ", fname=" + fname + ", lname=" + lname + ", age=" + age + "]";
 	}
+	
 
 }
