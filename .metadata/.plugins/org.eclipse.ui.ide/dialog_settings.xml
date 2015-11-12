@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ExternalProjectImportWizard">
-<<<<<<< HEAD
-		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
-		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
-		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
-		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="F:\Git_Valeriia\Symbols and Rows"/>
-			<item value="F:\Git_Valeriia\Loops"/>
-			<item value="F:\Git_Valeriia\Functions"/>
-			<item value="F:\Git_Valeriia\ConditionalOperators"/>
-			<item value="F:\Git_Valeriia\Class"/>
-			<item value="F:\Git_Valeriia\Calculator"/>
-			<item value="F:\Git_Valeriia\Arrays"/>
-=======
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Symbols and Rows"/>
-			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Loops"/>
-			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Functions"/>
-			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/ConditionalOperators"/>
-			<item value="/Developer/workspace/MCpp_HomeWork_Valeriia/Arrays"/>
->>>>>>> d3cd48886cb33dc997281636df0cfac9c361659f
+			<item value="/Users/denisova/HomeWork/Loops"/>
+			<item value="/Users/denisova/HomeWork/Functions"/>
+			<item value="/Users/denisova/HomeWork/Arrays"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>

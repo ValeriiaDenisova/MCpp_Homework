@@ -5,37 +5,50 @@ public class MainClass {
 		int res;
 		int [] xz;
 		int [] arr = {25, 13, 2, -69, 58, 156, -18, 0};
+		int elem = 777;
 		
-		Min_Max_MinI_MaxI min_max = new Min_Max_MinI_MaxI();
-		Sort sort = new Sort();
-		Revers rev = new Revers();
+		Alist0 rr = new Alist0();
 		
-		min_max.arr = arr;
-		sort.arr = arr;
-		rev.arr = arr;
+		rr.a = arr;
 		
-		res = min_max.fun_min(arr);
+		xz = rr.print();
+		System.out.println("Size = " + rr.size());
+		
+		res = rr.fun_min();
 		System.out.println("Min = " + res);
 		
-		res = min_max.fun_min_i(arr);
+		res = rr.fun_min_i();
 		System.out.println("Min_I = " + res);
 		
-		res = min_max.fun_max(arr);
+		res = rr.fun_max(arr);
 		System.out.println("Max = " + res);
 		
-		res = min_max.fun_max_i(arr);
+		res = rr.fun_max_i(arr);
 		System.out.println("Max_I = " + res);
 
-		xz = sort.bubble(arr);
+		xz = rr.bubble();
 		System.out.println("Sort: ");
-		for(int element : xz)
-		System.out.print(element + " ");
+		for(int elemen : xz)
+		System.out.print(elemen + " ");
 		System.out.println();
 		
-		xz = rev.revers_massiv(arr);
+		xz = rr.revers_massiv();
 		System.out.println("Revers: ");
-		for(int element : xz)
-		System.out.print(element + " ");
+		for(int elemen : xz)
+		System.out.print(elemen + " ");
+		System.out.println();
+			
+		xz = rr.half_revers();
+		System.out.println("Half Revers: ");
+		for(int elemen : xz)
+		System.out.print(elemen + " ");
+		System.out.println();
+		
+		xz = rr.addFirst(elem);
+		System.out.println("Add first: ");
+		for(int elemen : xz)
+		System.out.print(elemen + " ");
+		System.out.println();
 	}
 
 }
