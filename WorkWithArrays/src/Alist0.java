@@ -1,9 +1,9 @@
 
 public class Alist0 {
-	int [] a = null;
-	
+	int[] a = null;
+
 	public int fun_min() {
-		if (a == null || a.length == 0){
+		if (a == null || a.length == 0) {
 			throw new IllegalArgumentException();
 		}
 		int min = a[0];
@@ -24,7 +24,7 @@ public class Alist0 {
 		}
 		return min_i;
 	}
-	
+
 	public int fun_max(int[] a) {
 		int max = a[0];
 		for (int i = 0; i < a.length; i++) {
@@ -46,15 +46,15 @@ public class Alist0 {
 		}
 		return max_i;
 	}
-	
-	public int[] revers_massiv () {
-		int [] foo = new int [a.length];
+
+	public int[] revers_massiv() {
+		int[] foo = new int[a.length];
 		int j = 0;
 
-		for (int i = a.length - 1; i >= 0; i--) {			
-	    	  foo[j]  = a[i];
-	    	  j++; 
-	      }
+		for (int i = a.length - 1; i >= 0; i--) {
+			foo[j] = a[i];
+			j++;
+		}
 		return foo;
 	}
 
@@ -68,7 +68,7 @@ public class Alist0 {
 		}
 		return a;
 	}
-	
+
 	public int[] print() {
 		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i] + " ");
@@ -76,11 +76,11 @@ public class Alist0 {
 		System.out.println();
 		return a;
 	}
-	
+
 	public int size() {
 		return a.length;
 	}
-	
+
 	public int[] bubble() {
 		if (a == null || a.length == 0) {
 			throw new IllegalArgumentException();
@@ -96,19 +96,84 @@ public class Alist0 {
 		}
 		return a;
 	}
-	
+
+	public int[] set(int pos, int el) {
+		if (a == null || a.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		if (pos > a.length || pos < 0) {
+			throw new IllegalArgumentException();
+		}
+		a[pos - 1] = el;
+		return a;
+	}
+
+	public int get(int pos) {
+		if (a == null || a.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		if (pos > a.length || pos < 0) {
+			throw new IllegalArgumentException();
+		}
+		return a[pos - 1];
+	}
+
+	public int[] clear() {
+		if (a == null || a.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		for (int i = 0; i < a.length; i++)
+			a[i] = 0;
+		return a;
+	}
+
 	public int[] addFirst(int el) {
 		if (a == null || a.length == 0) {
 			throw new IllegalArgumentException();
 		}
-		int [] foo = new int [a.length + 1];
+		int[] foo = new int[a.length + 1];
 		foo[0] = el;
 		int j = 0;
 
-		for (int i = 0; i < a.length; i++) {			
-	    	  foo[j + 1]  = a[i];
-	    	  j++; 
-	      }		
+		for (int i = 0; i < a.length; i++) {
+			foo[j + 1] = a[i];
+			j++;
+		}
+		return foo;
+	}
+
+	public int[] addEnd(int el) {
+		if (a == null || a.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		int[] foo = new int[a.length + 1];
+		foo[foo.length - 1] = el;
+		int j = 0;
+
+		for (int i = 0; i < a.length; i++) {
+			foo[j] = a[i];
+			j++;
+		}
+		return foo;
+	}
+
+	public int[] addPos(int pos, int el) {
+		if (a == null || a.length == 0) {
+			throw new IllegalArgumentException();
+		}
+		if (pos > a.length || pos < 0) {
+			throw new IllegalArgumentException();
+		}
+		int[] foo = new int[a.length + 1];
+
+		for (int i = 0; i < a.length; i++) {
+			if (i < pos) {
+				foo[i] = a[i];
+			} else {
+				foo[i + 1] = a[i];
+			}
+		}
+		foo[pos] = el;
 		return foo;
 	}
 }
