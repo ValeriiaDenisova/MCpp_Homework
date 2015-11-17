@@ -62,13 +62,18 @@ public class AList1 implements EList {
 
 	@Override
 	public void addEnd(int val) {
+		if(top>ar.length)
+			ar = new int[ar.length+10];
 		ar[top++] = val;
 	}
 
 	@Override
 	public void addPos(int pos, int val) {
-		// TODO Auto-generated method stub
-
+		for (int i = top; i > 0; i--) {
+			ar[i] = ar[i - 1];
+		}
+		ar[0] = val;
+		top++;
 	}
 
 	@Override

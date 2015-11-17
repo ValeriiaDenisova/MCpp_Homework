@@ -56,6 +56,58 @@ public class AList1Test
 		int[] act = xx.toArray();
 		assertArrayEquals(exp, act);
 	}
+	
+	//======================================
+	// AddStart
+	//======================================
+	@Test
+	public void testAddEnd_0() 
+	{
+		int[] ini = {};
+		AList1 xx = new AList1(ini);
+		xx.addEnd(33);
+		assertEquals(1, xx.size());
+		assertEquals(33, xx.get(0));
+		int[] exp = {33};
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+	@Test
+	public void testAddEnd_1() 
+	{
+		int[] ini = {10};
+		AList1 xx = new AList1(ini);
+		xx.addEnd(33);
+		assertEquals(2, xx.size());
+		assertEquals(33, xx.get(0));
+		int[] exp = {33,10};
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+	@Test
+	public void testAddEnd_2() 
+	{
+		int[] ini = {10,20};
+		AList1 xx = new AList1(ini);
+		xx.addEnd(33);
+		assertEquals(3, xx.size());
+		assertEquals(33, xx.get(10));
+		int[] exp = {33,10,20};
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}	
+	@Test
+	public void testAddEnd_many() 
+	{
+		int[] ini = {10,20,34,77,11,26,1,12,15};
+		AList1 xx = new AList1(ini);
+		xx.addEnd(33);
+		assertEquals(10, xx.size());
+		assertEquals(33, xx.get(10));
+		int[] exp = {33,10,20,34,77,11,26};
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
 
 	//======================================
 	// size

@@ -41,11 +41,19 @@ public class AList0 implements EList {
 
 	@Override
 	public void set(int pos, int val) {
+		if (size() == 0)
+			throw new IllegalArgumentException();
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		ar[pos] = val;
 	}
 
 	@Override
 	public int get(int pos) {
+		if (size() == 0)
+			throw new IllegalArgumentException();
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		return ar[pos];
 	}
 
@@ -72,6 +80,8 @@ public class AList0 implements EList {
 
 	@Override
 	public void addPos(int pos, int val) {
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		int[] tmp = new int[size() + 1];
 
 		for (int i = 0; i < ar.length; i++) {
@@ -107,8 +117,16 @@ public class AList0 implements EList {
 
 	@Override
 	public int delPos(int pos) {
-		// TODO Auto-generated method stub
-		return 0;
+		int[] tmp = new int[size() - 1];
+		for (int i = 0; i < ar.length; i++) {
+			if (i < pos) {
+				tmp[i] = ar[i];
+			} else {
+				tmp[i - 1] = ar[i];
+			}
+		}
+		ar = tmp;
+		return ar[size() - 1];
 	}
 
 	@Override
@@ -180,8 +198,13 @@ public class AList0 implements EList {
 
 	@Override
 	public void halfRevers() {
-		// TODO Auto-generated method stub
-
+		int hlen = ar.length / 2;
+		int centr = hlen + ar.length % 2;
+		for (int i = 0; i < hlen; i++) {
+			int t = ar[i];
+			ar[i] = ar[centr + i];
+			ar[centr + i] = t;
+		}
 	}
 
 	@Override
