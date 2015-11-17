@@ -1,0 +1,28 @@
+SELECT COUNT(FirstName) FROM `person`
+
+SELECT AVG(Age) FROM `person`
+
+SELECT DISTINCT * FROM `person` 
+ORDER BY FirstName
+
+SELECT LastName, COUNT(id) FROM `person` 
+ORDER BY FirstName
+
+SELECT LastName, FROM `person` 
+WHERE LastName LIKE '_%b%_'
+
+SELECT * FROM `person` 
+WHERE Id_Street isNull
+
+SELECT FirasName, LastName 
+FROM `person` p, 'Streets' s
+WHERE p.id_street = s.id  AND p.age < 18 AND s.name like 'Pravda'
+
+SELECT s.Name, COUNT(p.id) 
+FROM `person` p RIGHT JOIN 'Streets' s
+ON p.id_street = s.id
+GROUP BY s.Name
+
+Length = 6
+
+HAVING COUNT(p.id) < 3

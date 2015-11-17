@@ -22,11 +22,21 @@ public class PersonDAO_Mock implements PersonDAO
 	}
 	public void update(Person p)
 	{
-
+		for(int i = 0; i < pp.size(); i++){
+			if(pp.get(i).id == p.id){
+				pp.set(i, p);
+				break;
+			}
+		}
 	}
 	public void delete(Person p)
 	{
-		
+		for(int i = 0; i < pp.size(); i++){
+			if(pp.get(i).id == p.id){
+				pp.remove(i);
+				break;
+			}
+		}
 	}
 
 }

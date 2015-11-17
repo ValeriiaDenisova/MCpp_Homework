@@ -1,0 +1,39 @@
+<html>
+<header>
+<title>My page</title>
+</header>
+<body>
+
+<input type = "text" id = "txtA"><br>
+<input type = "text" id = "txtOp"><br>
+<input type = "text" id = "txtB"><br>
+<input type = "text" id = "trez1"><br>
+<input type = "button" value = "Button" onclick = "f1()"><br>
+
+<script>
+function f1()
+{
+var a = parseInt(txtA.value);
+var b = parseInt(txtB.value);
+trez1.value = calc(a, b, txtOp.value);
+}
+
+function calc(a, b, op)
+{
+var res = 0;
+switch(op)
+{
+case "+": res = a + b;
+break;
+case "-": res = a - b;
+break;
+case "*": res = a * b;
+break;
+case "/": res = a / b;
+break;
+}
+return res;
+}
+</script>
+</body>
+</html>
