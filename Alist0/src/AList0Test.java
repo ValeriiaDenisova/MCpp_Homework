@@ -1,8 +1,26 @@
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized.Parameters;
+import org.junit.runners.Parameterized;
+
+@RunWith(Parameterized.class)
 public class AList0Test {
+
+	@Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[] {     
+                 { new AList0() }, 
+                 { new AList1() }, 
+                 { new AList2() }
+           });
+    }
+
 	// ======================================
 	// size
 	// ======================================
@@ -245,7 +263,7 @@ public class AList0Test {
 		int[] act = xx.toArray();
 		assertArrayEquals(exp, act);
 	}
-	
+
 	// ======================================
 	// AddEnd
 	// ======================================
@@ -293,7 +311,7 @@ public class AList0Test {
 		int[] act = xx.toArray();
 		assertArrayEquals(exp, act);
 	}
-	
+
 	// ======================================
 	// AddPos
 	// ======================================
@@ -340,6 +358,120 @@ public class AList0Test {
 		int[] exp = { 10, 20, 22, 34, 77, 11, 26 };
 		int[] act = xx.toArray();
 		assertArrayEquals(exp, act);
+	}
+
+	// ======================================
+	// DelStart
+	// ======================================
+	@Test(expected = NegativeArraySizeException.class)
+	public void testDelStart_null() {
+		int[] ini = null;
+		AList0 xx = new AList0(ini);
+		assertEquals(0, xx.delStart());
+	}
+
+	@Test(expected = NegativeArraySizeException.class)
+	public void testDelStart_0() {
+		int[] ini = {};
+		AList0 xx = new AList0(ini);
+		assertEquals(0, xx.delStart());
+	}
+
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testDelStart_1() {
+		int[] ini = { 10 };
+		AList0 xx = new AList0(ini);
+		assertEquals(10, xx.delStart());
+	}
+
+	@Test
+	public void testDelStart_2() {
+		int[] ini = { 10, 20 };
+		AList0 xx = new AList0(ini);
+		assertEquals(20, xx.delStart());
+	}
+
+	@Test
+	public void testDelStart_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		AList0 xx = new AList0(ini);
+		assertEquals(20, xx.delStart());
+	}
+
+	// ======================================
+	// DelEnd
+	// ======================================
+	@Test(expected = NegativeArraySizeException.class)
+	public void testDelEnd_null() {
+		int[] ini = null;
+		AList0 xx = new AList0(ini);
+		assertEquals(0, xx.delEnd());
+	}
+
+	@Test(expected = NegativeArraySizeException.class)
+	public void testDelEnd_0() {
+		int[] ini = {};
+		AList0 xx = new AList0(ini);
+		assertEquals(0, xx.delEnd());
+	}
+
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testDelEnd_1() {
+		int[] ini = { 10 };
+		AList0 xx = new AList0(ini);
+		assertEquals(10, xx.delEnd());
+	}
+
+	@Test
+	public void testDelEnd_2() {
+		int[] ini = { 10, 20 };
+		AList0 xx = new AList0(ini);
+		assertEquals(10, xx.delEnd());
+	}
+
+	@Test
+	public void testDelEnd_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		AList0 xx = new AList0(ini);
+		assertEquals(11, xx.delEnd());
+	}
+
+	// ======================================
+	// DelPos
+	// ======================================
+	@Test(expected = NegativeArraySizeException.class)
+	public void testDelPos_null() {
+		int[] ini = null;
+		AList0 xx = new AList0(ini);
+		assertEquals(0, xx.delPos(2));
+	}
+
+	@Test(expected = NegativeArraySizeException.class)
+	public void testDelPos_0() {
+		int[] ini = {};
+		AList0 xx = new AList0(ini);
+		assertEquals(0, xx.delPos(2));
+	}
+
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testDelPos_1() {
+		int[] ini = { 10 };
+		AList0 xx = new AList0(ini);
+		assertEquals(10, xx.delPos(2));
+	}
+
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testDelPos_2() {
+		int[] ini = { 10, 20 };
+		AList0 xx = new AList0(ini);
+		assertEquals(10, xx.delPos(2));
+	}
+
+	@Test
+	public void testDelPos_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		AList0 xx = new AList0(ini);
+		assertEquals(77, xx.delPos(2));
 	}
 
 	// ======================================
@@ -527,4 +659,146 @@ public class AList0Test {
 		assertEquals(3, res);
 	}
 
+	// ======================================
+	// Reverse
+	// ======================================
+	@Test(expected = IllegalArgumentException.class)
+	public void testReverse_0() {
+		int[] ini = {};
+		AList0 xx = new AList0(ini);
+		xx.reverse();
+		assertEquals(0, xx.size());
+		assertEquals(33, xx.get(0));
+		int[] exp = { 33 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testReverse_1() {
+		int[] ini = { 10 };
+		AList0 xx = new AList0(ini);
+		xx.reverse();
+		assertEquals(1, xx.size());
+		int[] exp = { 10 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testReverse_2() {
+		int[] ini = { 10, 20 };
+		AList0 xx = new AList0(ini);
+		xx.reverse();
+		assertEquals(2, xx.size());
+		int[] exp = { 20, 10 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testReverse_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		AList0 xx = new AList0(ini);
+		xx.reverse();
+		assertEquals(6, xx.size());
+		int[] exp = { 26, 11, 77, 34, 20, 10 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	// ======================================
+	// HalfReverse
+	// ======================================
+	@Test(expected = IllegalArgumentException.class)
+	public void testHalfReverse_0() {
+		int[] ini = {};
+		AList0 xx = new AList0(ini);
+		xx.halfRevers();
+		assertEquals(0, xx.size());
+		assertEquals(33, xx.get(0));
+		int[] exp = { 33 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testHalfReverse_1() {
+		int[] ini = { 10 };
+		AList0 xx = new AList0(ini);
+		xx.halfRevers();
+		assertEquals(1, xx.size());
+		int[] exp = { 10 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testHalfReverse_2() {
+		int[] ini = { 10, 20 };
+		AList0 xx = new AList0(ini);
+		xx.halfRevers();
+		assertEquals(2, xx.size());
+		int[] exp = { 20, 10 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testHalfReverse_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		AList0 xx = new AList0(ini);
+		xx.halfRevers();
+		assertEquals(6, xx.size());
+		int[] exp = { 77, 11, 26, 10, 20, 34 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	// ======================================
+	// Sort
+	// ======================================
+	@Test
+	public void testSort_0() {
+		int[] ini = {};
+		AList0 xx = new AList0(ini);
+		xx.sort();
+		assertEquals(0, xx.size());
+		int[] exp = {};
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testSort_1() {
+		int[] ini = { 10 };
+		AList0 xx = new AList0(ini);
+		xx.sort();
+		assertEquals(1, xx.size());
+		int[] exp = { 10 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testSort_2() {
+		int[] ini = { 10, 20 };
+		AList0 xx = new AList0(ini);
+		xx.sort();
+		assertEquals(2, xx.size());
+		int[] exp = { 10, 20 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testSort_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		AList0 xx = new AList0(ini);
+		xx.sort();
+		assertEquals(6, xx.size());
+		int[] exp = { 10, 11, 20, 26, 34, 77 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
 }

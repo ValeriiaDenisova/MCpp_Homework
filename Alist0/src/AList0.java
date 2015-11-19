@@ -80,7 +80,7 @@ public class AList0 implements EList {
 
 	@Override
 	public void addPos(int pos, int val) {
-		if (size() < pos)
+		if (size() == 0)
 			throw new ArrayIndexOutOfBoundsException();
 		int[] tmp = new int[size() + 1];
 
@@ -97,6 +97,8 @@ public class AList0 implements EList {
 
 	@Override
 	public int delStart() {
+		if (size() <= 0)
+			throw new NegativeArraySizeException();
 		int[] tmp = new int[size() - 1];
 		for (int i = 1; i < ar.length; i++) {
 			tmp[i - 1] = ar[i];
@@ -126,7 +128,7 @@ public class AList0 implements EList {
 			}
 		}
 		ar = tmp;
-		return ar[size() - 1];
+		return ar[pos];
 	}
 
 	@Override
@@ -194,6 +196,7 @@ public class AList0 implements EList {
 			tmp[j] = ar[i];
 			j++;
 		}
+		ar = tmp;
 	}
 
 	@Override

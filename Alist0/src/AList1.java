@@ -62,24 +62,29 @@ public class AList1 implements EList {
 
 	@Override
 	public void addEnd(int val) {
-		if(top>ar.length)
-			ar = new int[ar.length+10];
+		if (top > ar.length)
+			ar = new int[ar.length + 10];
 		ar[top++] = val;
 	}
 
 	@Override
 	public void addPos(int pos, int val) {
-		for (int i = top; i > 0; i--) {
-			ar[i] = ar[i - 1];
+		int[] tmp = new int[size() + 1];
+
+		for (int i = 0; i < top; i++) {
+			if (i < pos) {
+				tmp[i] = ar[i];
+			} else {
+				tmp[i + 1] = ar[i];
+			}
 		}
-		ar[0] = val;
-		top++;
+		tmp[pos] = val;
+		ar = tmp;
 	}
 
 	@Override
 	public int delStart() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ar[1];
 	}
 
 	@Override
@@ -92,50 +97,99 @@ public class AList1 implements EList {
 
 	@Override
 	public int delPos(int pos) {
-		// TODO Auto-generated method stub
-		return 0;
+		return ar[pos];
 	}
 
 	@Override
 	public int min() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size() == 0)
+			throw new IllegalArgumentException();
+
+		int res = ar[0];
+		for (int i = 1; i < top; i++) {
+			if (ar[i] < res) {
+				res = ar[i];
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public int max() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size() == 0)
+			throw new IllegalArgumentException();
+
+		int res = ar[0];
+		for (int i = 1; i < top; i++) {
+			if (ar[i] > res) {
+				res = ar[i];
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public int minIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size() == 0)
+			throw new IllegalArgumentException();
+
+		int res = 0;
+		for (int i = 1; i < top; i++) {
+			if (ar[i] < ar[res]) {
+				res = i;
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public int maxIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size() == 0)
+			throw new IllegalArgumentException();
+
+		int res = 0;
+		for (int i = 1; i < top; i++) {
+			if (ar[i] > ar[res]) {
+				res = i;
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public void reverse() {
-		// TODO Auto-generated method stub
+		int[] tmp = new int[top];
+		int j = 0;
 
+		for (int i = top - 1; i >= 0; i--) {
+			tmp[j] = ar[i];
+			j++;
+		}
+		ar = tmp;
 	}
 
 	@Override
 	public void halfRevers() {
-		// TODO Auto-generated method stub
-
+		int hlen = top / 2;
+		int centr = hlen + top % 2;
+		for (int i = 0; i < hlen; i++) {
+			int t = ar[i];
+			ar[i] = ar[centr + i];
+			ar[centr + i] = t;
+		}
 	}
 
 	@Override
 	public void sort() {
-		// TODO Auto-generated method stub
-
+		for (int i = 0; i < top; i++) {
+			for (int j = top - 1; j > 0; j--) {
+				if (ar[j - 1] > ar[j]) {
+					int t = ar[j];
+					ar[j] = ar[j - 1];
+					ar[j - 1] = t;
+				}
+			}
+		}
 	}
 
 }
