@@ -43,11 +43,19 @@ public class AList1 implements EList {
 
 	@Override
 	public void set(int pos, int val) {
+		if (size() == 0)
+			throw new IllegalArgumentException();
+		if (size() <= pos)
+			throw new ArrayIndexOutOfBoundsException();
 		ar[pos] = val;
 	}
 
 	@Override
 	public int get(int pos) {
+		if (size() == 0)
+			throw new IllegalArgumentException();
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		return ar[pos];
 	}
 
@@ -69,22 +77,29 @@ public class AList1 implements EList {
 
 	@Override
 	public void addPos(int pos, int val) {
-		int[] tmp = new int[size() + 1];
-
-		for (int i = 0; i < top; i++) {
+		if (size() == 0)
+			throw new ArrayIndexOutOfBoundsException();
+		for (int i = top; i > 0; i--) {
 			if (i < pos) {
-				tmp[i] = ar[i];
+				ar[i] = ar[i];
 			} else {
-				tmp[i + 1] = ar[i];
+				ar[i + 1] = ar[i];
 			}
 		}
-		tmp[pos] = val;
-		ar = tmp;
+		ar[pos] = val;
+		top++;
 	}
 
 	@Override
 	public int delStart() {
-		return ar[1];
+		if (top == 0) {
+			throw new NegativeArraySizeException();
+		}
+		for (int i = top; i > 0; i--) {
+			ar[i] = ar[i - 1];
+		}
+		return ar[0];
+
 	}
 
 	@Override

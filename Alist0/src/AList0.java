@@ -99,12 +99,18 @@ public class AList0 implements EList {
 	public int delStart() {
 		if (size() <= 0)
 			throw new NegativeArraySizeException();
+		int temp = ar[0];
+		if(size() == 1) {	
+			ar = new int[0];
+			return temp;
+			
+		}
 		int[] tmp = new int[size() - 1];
-		for (int i = 1; i < ar.length; i++) {
-			tmp[i - 1] = ar[i];
+		for (int i = 0; i < ar.length - 1; i++) {
+			tmp[i] = ar[i + 1];
 		}
 		ar = tmp;
-		return ar[0];
+		return temp;
 	}
 
 	@Override

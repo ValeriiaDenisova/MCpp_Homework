@@ -28,6 +28,9 @@ public class AList2 implements EList
 	@Override
 	public void init(int[] ini)
 	{
+		if (ini == null) {
+			ini = new int[0];
+		}
 		start = ar.length/2 - ini.length/2;
 		for (int i = 0; i < ini.length; i++) 
 		{
