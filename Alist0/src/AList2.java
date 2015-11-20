@@ -116,31 +116,59 @@ public class AList2 implements EList
 
 	@Override
 	public int minIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = start;
+		for (int i = 1; i < end - start; i++) {
+			if (ar[i] < ar[res]) {
+				res = i;
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public int maxIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = start;
+		for (int i = 1; i < ar.length; i++) {
+			if (ar[i] > ar[res]) {
+				res = i;
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public void reverse() {
-		// TODO Auto-generated method stub
-		
+		int[] tmp = new int[size()];
+		int j = 0;
+
+		for (int i = end; i >= start; i--) {
+			tmp[j] = ar[i];
+			j++;
+		}
+		ar = tmp;		
 	}
 
 	@Override
 	public void halfRevers() {
-		// TODO Auto-generated method stub
-		
+		int hlen = ar.length / 2;
+		int centr = hlen + ar.length % 2;
+		for (int i = 0; i < hlen; i++) {
+			int t = ar[i];
+			ar[i] = ar[centr + i];
+			ar[centr + i] = t;
+		}		
 	}
 
 	@Override
 	public void sort() {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < ar.length; i++) {
+			for (int j = ar.length - 1; j > 0; j--) {
+				if (ar[j - 1] > ar[j]) {
+					int t = ar[j];
+					ar[j] = ar[j - 1];
+					ar[j - 1] = t;
+				}
+			}
+		}		
 	}
 }

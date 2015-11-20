@@ -1,24 +1,26 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized.Parameters;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
 public class AList0Test {
 
+	private EList list;
+	public AList0Test(EList list) {
+		this.list = list;
+	}
+	
 	@Parameters
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[] {     
-                 { new AList0() }, 
-                 { new AList1() }, 
-                 { new AList2() }
-           });
+    public static Collection<EList> data() {	
+		return Arrays.asList(new AList0(), new AList1(), new AList2());
+        
     }
 
 	// ======================================
@@ -27,7 +29,7 @@ public class AList0Test {
 	@Test
 	public void testSize_null() {
 		int[] ini = null;
-		AList0 xx = new AList0(ini);
+		EList xx = list;
 		assertEquals(0, xx.size());
 	}
 
