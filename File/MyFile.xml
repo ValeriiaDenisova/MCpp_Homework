@@ -1,0 +1,12 @@
+<Person>
+	<id>	 1	</id>
+	<fname>	 Lena	</fname>
+	<lname>	 Golova	</lname>
+	<age>	 22	</age>
+</Person>
+<Person>
+	<id>	 91	</id>
+	<fname>	 Basik	</fname>
+	<lname>	 Kenov	</lname>
+	<age>	 99	</age>
+</Person>

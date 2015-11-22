@@ -364,7 +364,7 @@ public class AList0Test {
 		xx.init(ini);
 		xx.addPos(2, 22);
 		assertEquals(2, xx.size());
-		int[] exp = { 10, 33 };
+		int[] exp = { 10,  };
 		int[] act = xx.toArray();
 		assertArrayEquals(exp, act);
 	}
@@ -519,7 +519,7 @@ public class AList0Test {
 		int[] ini = { 10, 20, 34, 77, 11, 26 };
 		EList xx = list;
 		xx.init(ini);
-		assertEquals(77, xx.delPos(2));
+		assertEquals(34, xx.delPos(2));
 	}
 
 	// ======================================

@@ -98,7 +98,7 @@ public class AList2 implements EList
 	@Override
 	public int min() {
 		int res = ar[start];
-		for (int i = 1; i < end - start; i++) {
+		for (int i = start; i < end; i++) {
 			if (ar[i] < res) {
 				res = ar[i];
 			}
@@ -109,7 +109,7 @@ public class AList2 implements EList
 	@Override
 	public int max() {
 		int res = ar[start];
-		for (int i = 1; i < end - start; i++) {
+		for (int i = start; i < end; i++) {
 			if (ar[i] > res) {
 				res = ar[i];
 			}
@@ -120,23 +120,23 @@ public class AList2 implements EList
 	@Override
 	public int minIndex() {
 		int res = start;
-		for (int i = 1; i < end - start; i++) {
+		for (int i = start; i < end; i++) {
 			if (ar[i] < ar[res]) {
 				res = i;
 			}
 		}
-		return res;
+		return res - start;
 	}
 
 	@Override
 	public int maxIndex() {
 		int res = start;
-		for (int i = 1; i < ar.length; i++) {
+		for (int i = start; i < end; i++) {
 			if (ar[i] > ar[res]) {
 				res = i;
 			}
 		}
-		return res;
+		return res - start;
 	}
 
 	@Override

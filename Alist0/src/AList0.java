@@ -125,7 +125,12 @@ public class AList0 implements EList {
 
 	@Override
 	public int delPos(int pos) {
+		if (size() <= 0)
+			throw new NegativeArraySizeException();
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		int[] tmp = new int[size() - 1];
+		int temp =ar[pos];
 		for (int i = 0; i < ar.length; i++) {
 			if (i < pos) {
 				tmp[i] = ar[i];
@@ -134,7 +139,7 @@ public class AList0 implements EList {
 			}
 		}
 		ar = tmp;
-		return ar[pos];
+		return temp;
 	}
 
 	@Override

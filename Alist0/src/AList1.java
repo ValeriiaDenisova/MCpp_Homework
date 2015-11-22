@@ -77,13 +77,13 @@ public class AList1 implements EList {
 
 	@Override
 	public void addPos(int pos, int val) {
-		if (size() == 0)
+		if (size() == 0 || size() < pos)
 			throw new ArrayIndexOutOfBoundsException();
 		for (int i = top; i > 0; i--) {
-			if (i < pos) {
-				ar[i] = ar[i];
-			} else {
-				ar[i + 1] = ar[i];
+			if (i > pos) {
+				// ar[i] = ar[i];
+				// } else {
+				ar[i] = ar[i - 1];
 			}
 		}
 		ar[pos] = val;
@@ -104,14 +104,19 @@ public class AList1 implements EList {
 
 	@Override
 	public int delEnd() {
-		// top--;
-		// int res = ar[top];
-		// return res;
-		return ar[--top];
+		if (top <= 0)
+			throw new NegativeArraySizeException();
+		 int res = ar[top];
+		 top--;
+		 return res;
 	}
 
 	@Override
 	public int delPos(int pos) {
+		if (top <= 0)
+			throw new NegativeArraySizeException();
+		if (top < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		return ar[pos];
 	}
 
@@ -173,14 +178,11 @@ public class AList1 implements EList {
 
 	@Override
 	public void reverse() {
-		int[] tmp = new int[top];
-		int j = 0;
-
-		for (int i = top - 1; i >= 0; i--) {
-			tmp[j] = ar[i];
-			j++;
+		for (int i = 0; i < top / 2; i++) {
+			int temp = ar[i];
+			ar[i] = ar[top - i - 1];
+			ar[top - i - 1] = temp;
 		}
-		ar = tmp;
 	}
 
 	@Override
