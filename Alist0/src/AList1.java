@@ -81,8 +81,6 @@ public class AList1 implements EList {
 			throw new ArrayIndexOutOfBoundsException();
 		for (int i = top; i > 0; i--) {
 			if (i > pos) {
-				// ar[i] = ar[i];
-				// } else {
 				ar[i] = ar[i - 1];
 			}
 		}
@@ -106,9 +104,11 @@ public class AList1 implements EList {
 	public int delEnd() {
 		if (top <= 0)
 			throw new NegativeArraySizeException();
-		 int res = ar[top];
-		 top--;
-		 return res;
+		if (top == 1)
+			throw new ArrayIndexOutOfBoundsException();
+		int res = ar[top - 1];
+		top--;
+		return res;
 	}
 
 	@Override
@@ -117,7 +117,17 @@ public class AList1 implements EList {
 			throw new NegativeArraySizeException();
 		if (top < pos)
 			throw new ArrayIndexOutOfBoundsException();
-		return ar[pos];
+		int[] tmp = new int[top - 1];
+		int temp = ar[pos];
+		for (int i = top - 1; i > 0; i--) {
+			if (i < pos) {
+				tmp[i] = ar[i];
+			} else {
+				tmp[i - 1] = ar[i];
+			}
+		}
+		top--;
+		return temp;
 	}
 
 	@Override

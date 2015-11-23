@@ -115,12 +115,15 @@ public class AList0 implements EList {
 
 	@Override
 	public int delEnd() {
+		if (size() == 1)
+			throw new ArrayIndexOutOfBoundsException();
 		int[] tmp = new int[size() - 1];
+		int temp = ar[size() - 1];
 		for (int i = 0; i < ar.length - 1; i++) {
 			tmp[i] = ar[i];
 		}
 		ar = tmp;
-		return ar[size() - 1];
+		return temp;
 	}
 
 	@Override

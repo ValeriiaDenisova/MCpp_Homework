@@ -1,102 +1,127 @@
 
-public class AList2 implements EList 
-{
+public class AList2 implements EList {
 	private int[] ar = new int[30];
-	private int end   = 15;
+	private int end = 15;
 	private int start = 15;
 
-	public AList2() 
-	{
+	public AList2() {
 	}
-	public AList2(int[] ini) 
-	{
+
+	public AList2(int[] ini) {
 		init(ini);
 	}
-	
+
 	@Override
-	public int size() 
-	{
+	public int size() {
 		return end - start;
 	}
 
 	@Override
-	public void clear() 
-	{
-		end = start = ar.length/2;
+	public void clear() {
+		end = start = ar.length / 2;
 	}
 
 	@Override
-	public void init(int[] ini)
-	{
+	public void init(int[] ini) {
 		if (ini == null) {
 			ini = new int[0];
 		}
-		start = ar.length/2 - ini.length/2;
-		for (int i = 0; i < ini.length; i++) 
-		{
-			ar[start+i] = ini[i];
+		start = ar.length / 2 - ini.length / 2;
+		for (int i = 0; i < ini.length; i++) {
+			ar[start + i] = ini[i];
 		}
 		end = start + ini.length;
 	}
 
 	@Override
-	public int[] toArray() 
-	{
+	public int[] toArray() {
 		int[] tmp = new int[size()];
-		for (int i = 0; i < tmp.length; i++) 
-		{
-			tmp[i] = ar[start+i];
+		for (int i = 0; i < tmp.length; i++) {
+			tmp[i] = ar[start + i];
 		}
 		return tmp;
 	}
 
 	@Override
 	public void set(int pos, int val) {
-		ar[start + pos] = val;	
+		if (size() == 0)
+			throw new IllegalArgumentException();
+		if (size() <= pos)
+			throw new ArrayIndexOutOfBoundsException();
+		ar[start + pos] = val;
 	}
 
 	@Override
 	public int get(int pos) {
+		if (size() == 0)
+			throw new IllegalArgumentException();
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
 		return ar[start + pos];
 	}
 
 	@Override
-	public void addStart(int val) 
-	{
-		ar[--start] = val;	
+	public void addStart(int val) {
+		ar[--start] = val;
 	}
 
 	@Override
-	public void addEnd(int val) 
-	{
-		ar[end++] = val;	
+	public void addEnd(int val) {
+		ar[end++] = val;
 	}
 
 	@Override
 	public void addPos(int pos, int val) {
-		
+		if (size() == 0 || size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
+		for (int i = end; i > start; i--) {
+			if (i > pos + start) {
+				ar[i] = ar[i - 1];
+			}
+		}
+		ar[pos + start] = val;
+		end++;
 	}
 
 	@Override
-	public int delStart() 
-	{
+	public int delStart() {
+		if (size() <= 0)
+			throw new NegativeArraySizeException();
 		return ar[start++];
 	}
 
 	@Override
-	public int delEnd() 
-	{
+	public int delEnd() {
+		if (size() <= 0)
+			throw new NegativeArraySizeException();
+		if (size() == 1)
+			throw new ArrayIndexOutOfBoundsException();
 		return ar[--end];
 	}
 
 	@Override
 	public int delPos(int pos) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size() <= 0)
+			throw new NegativeArraySizeException();
+		if (size() < pos)
+			throw new ArrayIndexOutOfBoundsException();
+		int[] tmp = new int[size() - 1];
+		int temp = ar[pos];
+		for (int i = end - 1; i > start; i--) {
+			if (i > pos + start) {
+				tmp[i] = ar[i];
+			} else {
+				tmp[i - 1] = ar[i];
+			}
+		}
+		end--;
+		return temp;
 	}
 
 	@Override
 	public int min() {
+		if (size() == 0)
+			throw new IllegalArgumentException();
 		int res = ar[start];
 		for (int i = start; i < end; i++) {
 			if (ar[i] < res) {
@@ -108,6 +133,8 @@ public class AList2 implements EList
 
 	@Override
 	public int max() {
+		if (size() == 0)
+			throw new IllegalArgumentException();
 		int res = ar[start];
 		for (int i = start; i < end; i++) {
 			if (ar[i] > res) {
@@ -119,6 +146,8 @@ public class AList2 implements EList
 
 	@Override
 	public int minIndex() {
+		if (size() == 0)
+			throw new IllegalArgumentException();
 		int res = start;
 		for (int i = start; i < end; i++) {
 			if (ar[i] < ar[res]) {
@@ -130,6 +159,8 @@ public class AList2 implements EList
 
 	@Override
 	public int maxIndex() {
+		if (size() == 0)
+			throw new IllegalArgumentException();
 		int res = start;
 		for (int i = start; i < end; i++) {
 			if (ar[i] > ar[res]) {
@@ -148,30 +179,30 @@ public class AList2 implements EList
 			tmp[j] = ar[i];
 			j++;
 		}
-		ar = tmp;		
+		ar = tmp;
 	}
 
 	@Override
 	public void halfRevers() {
-		int hlen = ar.length / 2;
-		int centr = hlen + ar.length % 2;
-		for (int i = 0; i < hlen; i++) {
+		int hlen = size() / 2;
+		int centr = hlen + size() % 2;
+		for (int i = start; i < start + hlen; i++) {
 			int t = ar[i];
 			ar[i] = ar[centr + i];
 			ar[centr + i] = t;
-		}		
+		}
 	}
 
 	@Override
 	public void sort() {
-		for (int i = 0; i < ar.length; i++) {
-			for (int j = ar.length - 1; j > 0; j--) {
+		for (int i = start; i < end; i++) {
+			for (int j = end - 1; j > start; j--) {
 				if (ar[j - 1] > ar[j]) {
 					int t = ar[j];
 					ar[j] = ar[j - 1];
 					ar[j - 1] = t;
 				}
 			}
-		}		
+		}
 	}
 }
