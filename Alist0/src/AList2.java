@@ -106,12 +106,12 @@ public class AList2 implements EList {
 		if (size() < pos)
 			throw new ArrayIndexOutOfBoundsException();
 		int[] tmp = new int[size() - 1];
-		int temp = ar[pos];
+		int temp = ar[pos + start];
 		for (int i = end - 1; i > start; i--) {
-			if (i > pos + start) {
-				tmp[i] = ar[i];
+			if (i < pos + start) {
+				tmp[i - start] = ar[i];
 			} else {
-				tmp[i - 1] = ar[i];
+				tmp[i - start - 2] = ar[i];
 			}
 		}
 		end--;
@@ -172,14 +172,11 @@ public class AList2 implements EList {
 
 	@Override
 	public void reverse() {
-		int[] tmp = new int[size()];
-		int j = 0;
-
-		for (int i = end; i >= start; i--) {
-			tmp[j] = ar[i];
-			j++;
+		for (int i = start; i < start + size() / 2; i++) {
+			int temp = ar[i];
+			ar[i] = ar[start - i + end - 1];
+			ar[start - i + end - 1] = temp;
 		}
-		ar = tmp;
 	}
 
 	@Override

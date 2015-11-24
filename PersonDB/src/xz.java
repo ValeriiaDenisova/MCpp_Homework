@@ -61,15 +61,11 @@ public class xz {
 	}
 	
 	public static void printCSV(List<Person> pp) {
-		Gson gson = new Gson();
-		String str = gson.toJson(pp);
-		System.out.println(str);
+
 	}
 	
 	public static void printXML(List<Person> pp) {
-		Gson gson = new Gson();
-		String str = gson.toJson(pp);
-		System.out.println(str);
+
 	}
 
 	public static void saveFile_XML(List<Person> pp) {
