@@ -19,7 +19,13 @@ public class AList0Test {
 	
 	@Parameters
     public static Collection<EList> data() {	
-		return Arrays.asList(new AList0(), new AList1(), new AList2());
+		return Arrays.asList(
+//				new AList0(), 
+//				new AList1(), 
+//				new AList2(), 
+//				new LList1(),
+				new LList2()
+				);
         
     }
 
