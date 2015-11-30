@@ -19,19 +19,8 @@ public class AList0Test {
 	
 	@Parameters
     public static Collection<EList> data() {	
-<<<<<<< HEAD
 		return Arrays.asList(new AList0(), new AList1(), new AList2(), new LList1());
-=======
-		return Arrays.asList(
-//				new AList0(), 
-//				new AList1(), 
-//				new AList2(), 
-//				new LList1(),
-				new LList2()
-				);
->>>>>>> 714f4fcc0f339fd595a972cbb38bd7a9c497af38
-        
-    }
+	}
 
 	// ======================================
 	// size

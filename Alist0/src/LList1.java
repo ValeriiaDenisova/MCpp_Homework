@@ -27,15 +27,6 @@ public class LList1 implements EList {
 		root = null;
 	}
 
-	@Override
-<<<<<<< HEAD
-	public void init(int[] ini) {
-		if (ini == null) {
-			ini = new int[0];
-		} else {
-		for (int i = ini.length - 1; i >= 0; i--)
-			addStart(ini[i]);
-=======
 	public void init(int[] ar) {
 		clear();
 		if (ar == null) {
@@ -45,7 +36,6 @@ public class LList1 implements EList {
 			for (int i = ar.length - 1; i >= 0; i--) {
 				addStart(ar[i]);
 			}
->>>>>>> 714f4fcc0f339fd595a972cbb38bd7a9c497af38
 		}
 	}
 
