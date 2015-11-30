@@ -1,17 +1,27 @@
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
+import org.jdom.Document;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
+import org.jdom.Element;
+
 import com.google.gson.Gson;
 
+
 public class xz {
-	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException, JDOMException {
 		PersonDAO pd = null;
 		// pd = new PersonDAO_H2();
 		// pd = new PersonDAO_Mock();
@@ -64,9 +74,34 @@ public class xz {
 
 	}
 	
-	public static void printXML(List<Person> pp) {
+	public static void printXML(List<Person> pp) throws JDOMException, IOException {
+		SAXBuilder builder = new SAXBuilder();
+		  File xmlFile = new File("F:/workGit/File/MyFile.xml");
 
-	}
+		  try {
+
+			Document document = (Document) builder.build(xmlFile);
+			Element rootNode = document.getRootElement();
+			List list = rootNode.getChildren();
+
+			for (int i = 0; i < list.size(); i++) {
+
+			   Element node = (Element) list.get(i);
+
+			   System.out.println("First Name : " + node.getChildText("firstname"));
+			   System.out.println("Last Name : " + node.getChildText("lastname"));
+			   System.out.println("Nick Name : " + node.getChildText("nickname"));
+			   System.out.println("Salary : " + node.getChildText("salary"));
+
+			}
+
+		  } catch (IOException io) {
+			System.out.println(io.getMessage());
+		  } catch (JDOMException jdomex) {
+			System.out.println(jdomex.getMessage());
+		  }
+		}
+	
 
 	public static void saveFile_XML(List<Person> pp) {
 		BufferedWriter bw = null;
@@ -161,7 +196,7 @@ public class xz {
 
 	public static ArrayList<Person> load_CSV() throws IOException {
 		ArrayList<Person> pp = new ArrayList<Person>();
-		Scanner scan = new Scanner(new File("F:/workGit/File/MyFile.csv"));
+		Scanner scan = new Scanner(new File("//denisova/HomeWork/File/MyFile.csv"));
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
 			String[] lineArray = line.split(", ");

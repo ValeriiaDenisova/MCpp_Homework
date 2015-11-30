@@ -31,9 +31,10 @@ public class LList1 implements EList {
 	public void init(int[] ini) {
 		if (ini == null) {
 			ini = new int[0];
-		}
-		for (int i = ini.length; i >= 0; i--)
+		} else {
+		for (int i = ini.length - 1; i >= 0; i--)
 			addStart(ini[i]);
+		}
 	}
 
 	@Override
