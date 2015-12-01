@@ -1,5 +1,6 @@
+import java.util.Iterator;
 
-public class AList0 implements EList {
+public class AList0 implements EList, Iterable<Integer> {
 	private int[] ar = {};
 
 	public AList0() {
@@ -235,6 +236,27 @@ public class AList0 implements EList {
 				}
 			}
 		}
+	}
+
+	@Override
+	public Iterator<Integer> iterator() {
+		AListItr itr = new AListItr();
+		return itr;
+	}
+	
+	class AListItr implements Iterator<Integer>{
+		
+		int i = 0;
+		@Override
+		public boolean hasNext() {
+			return i < ar.length;
+		}
+
+		@Override
+		public Integer next() {
+			return ar[i++];
+		}
+		
 	}
 
 }
