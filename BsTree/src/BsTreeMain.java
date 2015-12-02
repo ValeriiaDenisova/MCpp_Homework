@@ -10,7 +10,10 @@ public class BsTreeMain {
 		tree.add(150);
 		tree.add(18);
 		tree.print();
-
+		System.out.println();
+		System.out.println("Size = " + tree.size());
+		System.out.println("Nodes = " + tree.nodes());
+		System.out.println("Leafs = " + tree.leafs());
 	}
 
 }

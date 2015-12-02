@@ -12,6 +12,10 @@ public class BsTree {
 
 	Node root = null;
 
+	////////////////////////////
+	// Print
+	///////////////////////////
+	
 	public void print() {
 		printNode(root);
 	}
@@ -25,6 +29,10 @@ public class BsTree {
 		printNode(p.right);
 	}
 
+	////////////////////////////
+	// Add
+	///////////////////////////
+	
 	public void add(int val) {
 		if (root == null) {
 			root = new Node(val);
@@ -50,4 +58,61 @@ public class BsTree {
 			}
 		}
 	}
+	
+	////////////////////////////
+	// Size
+	///////////////////////////
+	public int size(){
+		return sizeNode(root);
+	}
+	
+	private int sizeNode(Node p){
+		if(p == null){
+			return 0;
+		}
+		int ret = 0;
+		ret += sizeNode(p.left);
+		ret++;
+		ret += sizeNode(p.right);
+		return ret;
+	}
+	
+	////////////////////////////
+	// NodesSize
+	///////////////////////////
+	public int nodes(){
+		return nodesNode(root);
+	}
+	
+	private int nodesNode(Node p){
+		if(p == null){
+			return 0;
+		}
+		int ret = 0;
+		ret += nodesNode(p.left);
+		if (p.left != null && p.right != null)
+		ret++;
+		ret += nodesNode(p.right);
+		return ret;
+	}
+	
+	////////////////////////////
+	// LeafsSize
+	///////////////////////////
+	public int leafs(){
+		return leafsNode(root);
+	}
+	
+	private int leafsNode(Node p){
+		if(p == null){
+			return 0;
+		}
+		int ret = 0;
+		ret += leafsNode(p.left);
+		if (p.left == null && p.right == null)
+		ret++;
+		ret += leafsNode(p.right);
+		return ret;
+	}
+	
 }
