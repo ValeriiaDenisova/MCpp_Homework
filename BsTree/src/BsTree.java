@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class BsTree {
 	class Node {
@@ -15,7 +17,7 @@ public class BsTree {
 	////////////////////////////
 	// Print
 	///////////////////////////
-	
+
 	public void print() {
 		printNode(root);
 	}
@@ -32,7 +34,7 @@ public class BsTree {
 	////////////////////////////
 	// Add
 	///////////////////////////
-	
+
 	public void add(int val) {
 		if (root == null) {
 			root = new Node(val);
@@ -49,25 +51,23 @@ public class BsTree {
 				addNode(p.left, val);
 			}
 		} else {
-			if(p.right == null){
+			if (p.right == null) {
 				p.right = new Node(val);
-			}
-			else
-			{
+			} else {
 				addNode(p.right, val);
 			}
 		}
 	}
-	
+
 	////////////////////////////
 	// Size
 	///////////////////////////
-	public int size(){
+	public int size() {
 		return sizeNode(root);
 	}
-	
-	private int sizeNode(Node p){
-		if(p == null){
+
+	private int sizeNode(Node p) {
+		if (p == null) {
 			return 0;
 		}
 		int ret = 0;
@@ -76,43 +76,106 @@ public class BsTree {
 		ret += sizeNode(p.right);
 		return ret;
 	}
-	
+
 	////////////////////////////
 	// NodesSize
 	///////////////////////////
-	public int nodes(){
+	public int nodes() {
 		return nodesNode(root);
 	}
-	
-	private int nodesNode(Node p){
-		if(p == null){
+
+	private int nodesNode(Node p) {
+		if (p == null) {
 			return 0;
 		}
 		int ret = 0;
 		ret += nodesNode(p.left);
 		if (p.left != null && p.right != null)
-		ret++;
+			ret++;
 		ret += nodesNode(p.right);
 		return ret;
 	}
-	
+
 	////////////////////////////
 	// LeafsSize
 	///////////////////////////
-	public int leafs(){
+	public int leafs() {
 		return leafsNode(root);
 	}
-	
-	private int leafsNode(Node p){
-		if(p == null){
+
+	private int leafsNode(Node p) {
+		if (p == null) {
 			return 0;
 		}
 		int ret = 0;
 		ret += leafsNode(p.left);
 		if (p.left == null && p.right == null)
-		ret++;
+			ret++;
 		ret += leafsNode(p.right);
 		return ret;
 	}
+
+	////////////////////////////
+	// Init
+	///////////////////////////
+	public void init(int[] ar) {
+		if (ar == null || ar.length == 0) {
+			ar = new int[0];
+		}
+		for (int i : ar) {
+			add(i);
+		}
+	}
+
+	////////////////////////////
+	// Height
+	///////////////////////////
+	public int height() {
+		return heightNode(root);
+	}
+
+	private int heightNode(Node p) {
+		if (p == null) {
+			return 0;
+		}
+		int leftSide = leafsNode(p.left);
+		int rightSide = leafsNode(p.right);
+		return Math.max(leftSide, rightSide) + 1;
+	}
+
+	////////////////////////////
+	// Clear
+	///////////////////////////
+	public void clear() {
+		root = null;
+	}
+
+	////////////////////////////
+	// toArray
+	///////////////////////////
 	
+	public int[] toArray() {
+		List<Integer> list = new ArrayList<Integer>();
+		if (root == null || size() == 0) {
+
+		} else {
+			list = toArray(root, list);
+		}
+		int i = 0;
+		int[] arr = new int[list.size()];
+		for (int ch : list) {
+			arr[i] = ch;
+			i++;
+		}
+		return arr;
+	}
+
+	private List<Integer> toArray(Node p, List<Integer> list) {
+		if (p == null)
+			return list;
+		list = toArray(p.left, list);
+		list.add(p.val);
+		list = toArray(p.right, list);
+		return list;
+	}
 }
