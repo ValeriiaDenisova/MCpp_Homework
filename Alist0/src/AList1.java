@@ -238,6 +238,12 @@ public class AList1 implements EList, Iterable<Integer> {
 		public Integer next() {
 			return ar[i++];
 		}
+
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
+		}
 		
 	}
 
