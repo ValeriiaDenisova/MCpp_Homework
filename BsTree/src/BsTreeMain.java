@@ -15,6 +15,7 @@ public class BsTreeMain {
 		System.out.println("Nodes = " + tree.nodes());
 		System.out.println("Leafs = " + tree.leafs());
 		System.out.println("Height = " + tree.height());
+		tree.reverse();
 	}
 
 }
