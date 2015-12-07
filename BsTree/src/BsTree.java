@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class BsTree {
+public class BsTree implements Iterable<Integer> {
 	class Node {
 		int val;
 		Node left = null;
@@ -178,4 +179,55 @@ public class BsTree {
 		list = toArray(p.right, list);
 		return list;
 	}
+	
+	////////////////////////////
+	// Reverse
+	///////////////////////////
+	public void reverse() {
+		reverseNode(root);
+		}
+
+	private void reverseNode(Node p) {
+		if (p == null) {
+			return;
+		}
+	    Node tmp = p.left;
+	    p.left = p.right;
+	    p.right = tmp;
+
+	    if(p.left != null) reverseNode(p.left);
+	    if(p.right != null) reverseNode(p.right);
+	}
+	
+	////////////////////////////
+	// Iterator
+	///////////////////////////
+
+	@Override
+	public Iterator<Integer> iterator() {
+		AListItr itr = new AListItr();
+		return itr;
+	}
+	
+	class AListItr implements Iterator<Integer>{
+		private Node next;
+
+		@Override
+		public boolean hasNext() {
+			return next != null;
+		}
+
+		@Override
+		public Integer next() {
+			return 0;
+		}
+
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+
 }
