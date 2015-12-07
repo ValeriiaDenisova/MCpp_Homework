@@ -1,5 +1,4 @@
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -877,6 +876,48 @@ public class AList0Test {
 
 	@Test
 	public void testSort_many() {
+		int[] ini = { 10, 20, 34, 77, 11, 26 };
+		EList xx = list;
+		xx.init(ini);
+		xx.sort();
+		assertEquals(6, xx.size());
+		int[] exp = { 10, 11, 20, 26, 34, 77 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+	
+	// ======================================
+	// Equals
+	// ======================================
+
+	@Test
+	public void testEquals_1_false() {
+		int[] ini = { 10 };
+		EList xx = list;
+		xx.init(ini);
+		int [] b = {20};
+		AList0 al = new AList0();
+		al.equals(b);
+		xx.sort();
+//		int[] exp = { 10 };
+//		int[] act = xx.toArray();
+		assertTrue(false);
+	}
+
+	@Test
+	public void testEquals_2() {
+		int[] ini = { 10, 20 };
+		EList xx = list;
+		xx.init(ini);
+		xx.sort();
+		assertEquals(2, xx.size());
+		int[] exp = { 10, 20 };
+		int[] act = xx.toArray();
+		assertArrayEquals(exp, act);
+	}
+
+	@Test
+	public void testEquals_many() {
 		int[] ini = { 10, 20, 34, 77, 11, 26 };
 		EList xx = list;
 		xx.init(ini);

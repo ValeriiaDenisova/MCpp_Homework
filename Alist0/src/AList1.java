@@ -241,4 +241,22 @@ public class AList1 implements EList, Iterable<Integer> {
 		
 	}
 
+	public boolean equals(Object p) {
+		EList tmp = (AList1) p;
+		boolean rez = false;
+		if(size() != tmp.size())
+		{
+			return rez;
+		}
+		for (int i = 0; i < this.size(); i++)
+		{
+				if (get(i) != tmp.get(i)) {
+					return rez;
+				} else {
+					rez = true;
+			}
+		}
+		return rez;	
+	}
+
 }

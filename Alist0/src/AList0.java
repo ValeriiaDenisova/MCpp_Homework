@@ -258,5 +258,25 @@ public class AList0 implements EList, Iterable<Integer> {
 		}
 		
 	}
+		
+	public boolean equals(Object p) {
+		AList0 tmp = (AList0) p;
+		boolean rez = false;
+		if(this == tmp){
+			rez = true;
+		}
+		if(ar.length != tmp.size()){
+			return rez;
+		}
+		for (int i = 0; i < ar.length; i++) {
+				if (ar[i] != tmp.get(i)) {
+					return rez;
+					
+				} else {
+					rez = true;
+			}
+		}
+		return rez;
+	}
 
 }

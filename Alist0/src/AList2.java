@@ -230,5 +230,54 @@ public class AList2 implements EList, Iterable<Integer> {
 			return rr[s++];
 		}
 		
+		
+		@Override
+		public boolean equals(Object obj) 
+		{
+			System.out.println("Test!!!");
+			return super.equals(obj);
+		}
+		
+		//@Override
+		public boolean equals2(Object p) 
+		{
+			
+			EList tmp = (EList) p;
+			boolean rez = false;
+			if(size() != tmp.size())
+			{
+				return rez;
+			}
+			for (int i = start; i < end; i++)
+			{
+					if (ar[i] != tmp.get(i)) {
+						return rez;
+					} else {
+						rez = true;
+				}
+			}
+			return rez;
+		}
+		
 	}
+
+	public boolean equals(Object p) {
+		
+		EList tmp = (AList2) p;
+		boolean rez = false;
+		if(size() != tmp.size())
+		{
+			return rez;
+		}
+		for (int i = 0; i < this.size(); i++)
+		{
+				if (get(i) != tmp.get(i)) {
+					return rez;
+				} else {
+					rez = true;
+			}
+		}
+		return rez;		
+	}
+
 }
